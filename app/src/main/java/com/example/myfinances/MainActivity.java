@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Button saveButton, clearButton;
     private RadioGroup radioGroup;
     private DatabaseHelper databaseHelper;
-    private TextView messageView; // TextView for displaying messages
+    private TextView messageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +41,10 @@ public class MainActivity extends AppCompatActivity {
         radioGroup = findViewById(R.id.radioGroup);
         saveButton = findViewById(R.id.SaveButton);
         clearButton = findViewById(R.id.ClearButton);
-        messageView = findViewById(R.id.textView); // Repurpose an existing TextView for messages
+        messageView = findViewById(R.id.textView);
 
         databaseHelper = new DatabaseHelper(this);
 
-        // Enable/Disable fields based on selected account type
         radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == R.id.radioCD) {
                 interestRate.setVisibility(View.VISIBLE);
@@ -59,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Set up button click listeners
         saveButton.setOnClickListener(v -> saveFinancialObject());
         clearButton.setOnClickListener(v -> clearFields());
     }
@@ -103,12 +101,11 @@ public class MainActivity extends AppCompatActivity {
         paymentAmount.setText("");
         messageView.setText("Fields cleared.");
     }
-
     private double parseDoubleSafe(String value) {
         try {
             return Double.parseDouble(value);
         } catch (NumberFormatException e) {
-            return 0; // Default to 0 if the input is invalid
+            return 0;
         }
     }
 }

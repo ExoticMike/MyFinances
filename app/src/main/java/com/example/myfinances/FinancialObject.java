@@ -23,7 +23,6 @@ public class FinancialObject {
         return currentBalance;
     }
 
-    // CD Subclass
     public static class CD extends FinancialObject {
         private double interestRate;
 
@@ -37,7 +36,6 @@ public class FinancialObject {
         }
     }
 
-    // Loan Subclass
     public static class Loan extends FinancialObject {
         private double paymentAmount;
         private double interestRate;
@@ -57,7 +55,6 @@ public class FinancialObject {
         }
     }
 
-    // Checking Account Subclass
     public static class CheckingAccount extends FinancialObject {
         public CheckingAccount(String accountNumber, double initialBalance, double currentBalance) {
             super(accountNumber, initialBalance, currentBalance);
